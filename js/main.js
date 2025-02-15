@@ -25,18 +25,16 @@ document.addEventListener('click' , (e) => {
 })
 
 
-let orders = {}  // استبدال ordersHtml بمصفوفة كائنات لتجنب التكرار
+let orders = {}  
 let order = ""
 function addOrder(orderId) {
-    const orderObj = menuArray.find(menu => menu.id === orderId)  // استخدم find بدلًا من filter[0]
+    const orderObj = menuArray.find(menu => menu.id === orderId) 
     
     if (orders[orderId]) {
-        // إذا كان الطلب موجودًا، قم بتحديث الكمية والسعر فقط
         orders[orderId].quantity += 1
         document.querySelector(`#quantity-${orderId}`).textContent = orders[orderId].quantity
         document.querySelector(`#price-${orderId}`).textContent = `$${orders[orderId].quantity * orderObj.price}`
     } else {
-        // إذا لم يكن موجودًا، أضفه إلى الكارت
         orders[orderId] = { ...orderObj, quantity: 1 }
 
         order = `
@@ -48,7 +46,6 @@ function addOrder(orderId) {
         </div>
         `
 
-        // clientsOrders.innerHTML += order  // أضف العنصر الجديد إلى الـ DOM مباشرة
         clientsOrders.insertAdjacentHTML("beforeend", order)
     }
 
@@ -59,12 +56,10 @@ function addOrder(orderId) {
 function removeOrder(orderId) {
     if (orders[orderId]) {
         if (orders[orderId].quantity > 1) {
-            // إذا كان العدد أكثر من 1، قم بإنقاصه فقط
             orders[orderId].quantity -= 1
             document.querySelector(`#quantity-${orderId}`).textContent = orders[orderId].quantity
             document.querySelector(`#price-${orderId}`).textContent = `$${orders[orderId].quantity * orders[orderId].price}`
         } else {
-            // إذا كانت الكمية 1، قم بإزالته من القائمة والـ DOM
             delete orders[orderId]
             document.querySelector(`#order-${orderId}`).remove()
         }
@@ -93,16 +88,13 @@ userForm.addEventListener("submit", e => {
     let userName = userFormData.get("user-name")
     
     const orderMessage = `<div class="order-message">Thanks, ${userName}! Your order is on its way! 🚀</div>`
-    // ✅ استخدام insertAdjacentHTML بدلاً من innerHTML حتى لا نحذف `clientsOrders`
     document.querySelector("main").insertAdjacentHTML("beforeend", orderMessage)
 
-    // ✅ إعادة ضبط الطلبات بشكل صحيح
     orders = {}  
-    clientsOrders.innerHTML = ""  // 🟢 امسح جميع الطلبات من الـ DOM
-    totalPrices.textContent = "$0"  // 🟢 إعادة ضبط السعر الإجمالي
-    userForm.reset()  // 🟢 إعادة ضبط المدخلات في النموذج
+    clientsOrders.innerHTML = ""  
+    totalPrices.textContent = "$0"
+    userForm.reset() 
     
-    // ✅ إزالة رسالة التأكيد بعد 3 ثوانٍ
     setTimeout(() => {
         document.querySelector(".order-message").remove()
     }, 3000)
@@ -130,7 +122,6 @@ function getMenuHtml() {
     }).join("")
 }
 
-// console.log(getAppHtml())
 function render() {
     document.getElementById("menu-section").innerHTML = getMenuHtml()
 }
