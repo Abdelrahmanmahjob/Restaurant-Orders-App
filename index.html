@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Ordering App</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="restaurant-app">
+        <div class="overlay hidden"></div>
+        <header>
+            <img src="imgs/header.png" alt="">
+        </header>
+        <main>
+            <section class="menu-section" id="menu-section"></section>
+            <section class="order-cart-section hidden" id="order-cart-section">
+                <h2 class="head">Your Order</h2>
+                <div class="clients-orders"></div>
+                <div class="total-content">
+                    <h2>Total price :</h2>
+                    <span id="total-price"></span>
+                </div>
+                <button class="complete-order" data-complete-order="complete-order">Complete order</button>
+            </section>
+            <div class="card-details hidden">
+                <h2>Enter card details</h2>
+                <form class="user-form">
+                    <input type="text" name="user-name" placeholder="Enter your name" required>
+                    <input type="number" name="card-number" placeholder="Enter card number" required>
+                    <input type="number" name="CVV" placeholder="Enter CVV" required>
+                    <input type="submit" class="btn" value="Pay">
+                </form>
+                <div class="close-card" data-close="close">X</div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/main.js" type="module"></script>
+</body>
+</html>

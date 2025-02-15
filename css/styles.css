@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: "Smythe", serif;
+    background-color: #232323;
+}
+
+.hidden {
+    display: none;
+}
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: hsl(0deg 0% 0% / 25%);
+    z-index: 2;
+}
+
+.restaurant-app {
+    position: relative;
+    background-color: white;
+    width: 500px;
+    margin: 0 auto;
+    header {
+        img {
+            width: 100%;
+            height: 150px;
+        }
+    }
+    main {
+        padding-bottom: 20px;
+        .menu-section {
+            padding: 40px 40px 0;
+            .order-box {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-bottom: 25px;
+                margin-bottom: 25px;
+                border-bottom: 1px solid #ccc;
+                .order {
+                    display: flex;
+                    .order-image {
+                        width: 70px;
+                        font-size: 45px;
+                        margin-right: 15px;
+                        text-align: center;
+                    }
+                    .order-des {
+                        .ingredients {
+                            color: #8B8B8B;
+                            margin-block: 10px;
+                        }
+                        .order-price {
+                            font-weight: 500;
+                        }
+                    }
+                }
+                .add-order {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    border: 1px solid #ccc;
+                    font-size: 50px;
+                    cursor: pointer;
+                    text-align: center;
+                    line-height: 35px;
+                    user-select: none;
+                    transition: transform .3s;
+                    &:hover {
+                        background-color: #ffc83d;
+                        border: none;
+                        box-shadow: 0px 0px 5px #af0d1a;
+                        transform: translateY(-3px);
+                    }
+                }
+            }
+        }
+        .order-cart-section {
+            padding-inline: 40px;
+            .head {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .clients-orders {
+                border-bottom: 2px solid gray;
+                .order-content {
+                    display: flex;
+                    align-items: baseline;
+                    margin-bottom: 20px;
+                    h2 {
+                        span {
+                            font-size: 15px;
+                        }
+                    }
+                    .order-number {
+                        margin-inline: 10px;
+                    }
+                    .remove-order {
+                        color: #8B8B8B;
+                        cursor: pointer;
+                        user-select: none;
+                        transition: .2s;
+                        &:hover {
+                            color: red;
+                            font-weight: bold;
+                        }
+                    }
+                    .price {
+                        margin-left: auto;
+                    }
+                }
+            }
+            .total-content {
+                display: flex;
+                justify-content: space-between;
+                margin-block: 20px;
+                #total-price {
+                    font-weight: bold;
+                }
+            }
+            .complete-order {
+                display: block;
+                padding: 15px 45px;
+                margin: 0 auto;
+                background-color: #16db99;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: .3s;
+                &:hover {
+                    background-color: #0defa3;
+                }
+            }
+        }
+        .card-details {
+            position: fixed;
+            width: 450px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 30px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 0 70px #757575;
+            z-index: 10;
+            h2 {
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            input {
+                width: 100%;
+                padding: 15px;
+                margin-block: 15px;
+                border: 1px solid #232323;
+            }
+            .btn {
+                display: block;
+                width: 100%;
+                background-color: #16DB99;
+                color: white;
+                font-weight: bold;
+                padding-block: 15px;
+                margin-top: 20px;
+                text-align: center;
+                border: none;
+                cursor: pointer;
+                transition: .2s;
+                &:hover {
+                    background-color: #0defa3;
+                    box-shadow: 2px 2px 10px #757575;
+                }
+            }
+            .close-card {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 30px;
+                position: absolute;
+                top: -12px;
+                right: -12px;
+                background-color: #0defa3;
+                color: white;
+                cursor: pointer;
+                &:hover {
+                    background-color: red;
+                    box-shadow: 0 0 10px #757575;
+                    font-weight: bold;
+                }
+            }
+        }
+        .order-message {
+            width: 450px;
+            margin: 20px auto;
+            background-color: #ECFDF5;
+            color: #065F46;
+            padding: 25px 50px;
+            text-align: center;
+            font-size: 22px;
+            font-style: italic;
+        }
+    }
+}
